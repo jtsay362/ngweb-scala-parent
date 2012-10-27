@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+	  <groupId>com.ngweb</groupId>
+	  <artifactId>parent</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>  
+  </parent>
+  
+  <groupId>com.ngweb</groupId>
+  <artifactId>scala-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>${project.artifactId}</name>
+  <description>Parent project for NGWeb Scala projects</description>
+  <inceptionYear>2012</inceptionYear>
+  <packaging>pom</packaging>
+
+  <properties>        
+    <scala.version>2.9.2</scala.version>    
+    <scala.maven.version>3.1.0</scala.maven.version>    
+    <slf4j.version>1.6.2</slf4j.version>
+    <scalatest.version>1.7.2</scalatest.version>
+    <specs.version>1.6.9</specs.version>
+    <specs2.version>1.10</specs2.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+            
+    <!-- Test -->
+    <dependency>
+      <groupId>org.specs2</groupId>
+      <artifactId>specs2_${scala.version}</artifactId>
+      <version>${specs2.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.scalatest</groupId>
+      <artifactId>scalatest_${scala.version}</artifactId>
+      <version>${scalatest.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/scala</sourceDirectory>
+    <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>${scala.maven.version}</version>
+          <configuration>
+            <recompileMode>incremental</recompileMode>
+            <!-- Can't figure out how to run Zinc in Windows. -->
+            <!-- useZincServer>true</useZincServer -->
+          </configuration>          
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile</goal>
+                <goal>testCompile</goal>
+              </goals>
+              <configuration>
+                <useFsc>true</useFsc>
+                <once>true</once>
+                <args>
+                  <arg>-make:transitive</arg>
+                  <arg>-dependencyfile</arg>
+                  <arg>${project.build.directory}/.scala_dependencies</arg>
+                </args>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven.surefire.version}</version>
+          <configuration>
+            <useFile>false</useFile>
+            <disableXmlReport>true</disableXmlReport>
+            <!-- If you have classpath issue like NoDefClassError,... -->
+            <!-- useManifestOnlyJar>false</useManifestOnlyJar -->
+            <includes>
+              <include>**/*Test.*</include>
+              <include>**/*Suite.*</include>
+            </includes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

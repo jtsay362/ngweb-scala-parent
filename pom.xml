@@ -21,8 +21,8 @@
     <scala.maven.version>3.1.4</scala.maven.version>
     <jackson.module.scala.version>2.2.0</jackson.module.scala.version>       
     <scalatest.version>1.9.1</scalatest.version>
-    <!-- specs.version>1.6.9</specs.version -->
-    <specs2.version>1.13</specs2.version>
+    <specs.version>1.6.9</specs.version>
+    <specs2.version>1.12.4.1</specs2.version>
   </properties>
 
   <dependencies>
@@ -35,7 +35,7 @@
     <!-- Test -->
     <dependency>
       <groupId>org.specs2</groupId>
-      <artifactId>specs2_2.10</artifactId>
+      <artifactId>specs2_2.9.3</artifactId>
       <version>${specs2.version}</version>
       <scope>test</scope>
     </dependency>

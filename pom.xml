@@ -9,20 +9,19 @@
   
   <groupId>com.ngweb</groupId>
   <artifactId>scala-parent</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.4-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>Parent project for NGWeb Scala projects</description>
   <inceptionYear>2012</inceptionYear>
   <packaging>pom</packaging>
 
   <properties>        
-    <!--scala.version>2.10.0</scala.version-->
-    <scala.version>2.9.3</scala.version>        
-    <scala.maven.version>3.1.4</scala.maven.version>
-    <jackson.module.scala.version>2.2.0</jackson.module.scala.version>       
+    <scala.version>2.10.2</scala.version>
+    <scala.maven.version>3.1.5</scala.maven.version>
+    <jackson.module.scala.version>2.2.1</jackson.module.scala.version>
     <scalatest.version>1.9.1</scalatest.version>
     <specs.version>1.6.9</specs.version>
-    <specs2.version>1.12.4.1</specs2.version>
+    <specs2.version>1.14</specs2.version>
   </properties>
 
   <dependencies>
@@ -35,13 +34,13 @@
     <!-- Test -->
     <dependency>
       <groupId>org.specs2</groupId>
-      <artifactId>specs2_2.9.3</artifactId>
+      <artifactId>specs2_2.10</artifactId>
       <version>${specs2.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
-      <artifactId>scalatest_2.9.3</artifactId>
+      <artifactId>scalatest_2.10</artifactId>
       <version>${scalatest.version}</version>
       <scope>test</scope>
     </dependency>

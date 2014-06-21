@@ -2,24 +2,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-	  <groupId>com.ngweb</groupId>
-	  <artifactId>parent</artifactId>
-	  <version>0.0.2-SNAPSHOT</version>  
+    <groupId>com.ngweb</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.0.3-SNAPSHOT</version>  
   </parent>
   
   <groupId>com.ngweb</groupId>
   <artifactId>scala-parent</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <name>${project.artifactId}</name>
   <description>Parent project for NGWeb Scala projects</description>
   <inceptionYear>2012</inceptionYear>
   <packaging>pom</packaging>
 
   <properties>        
-    <scala.version>2.10.2</scala.version>
-    <scala.maven.version>3.1.5</scala.maven.version>
-    <jackson.module.scala.version>2.2.1</jackson.module.scala.version>
-    <scalatest.version>1.9.1</scalatest.version>
+    <scala.version>2.10.4</scala.version>
+    <scala.maven.version>3.1.6</scala.maven.version>
+    <jackson.module.scala.version>2.3.3</jackson.module.scala.version>
+    <scalatest.version>1.9.2</scalatest.version>
     <specs.version>1.6.9</specs.version>
     <specs2.version>1.14</specs2.version>
   </properties>
